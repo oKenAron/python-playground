@@ -1,0 +1,3 @@
+# paiza 题解不对外公开（遵守平台利用规约），同样不让 Claude 读取
+/paiza/*
+!/paiza/paiza_template.py
