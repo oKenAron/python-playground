@@ -3,8 +3,9 @@ class Solution:
         length = len(nums)
         ans = 0
         for i in range(length):
+            sum_subarray = 0
             for j in range(i, length):
-                sum_subarray = sum(nums[i : j + 1])
+                sum_subarray += nums[j]
                 if sum_subarray % 10 == x and str(sum_subarray)[0] == str(x):
                     ans += 1
 
