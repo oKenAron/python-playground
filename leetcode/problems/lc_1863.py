@@ -4,16 +4,9 @@ from typing import List
 class Solution:
     def subsetXORSum(self, nums: List[int]) -> int:
         nums_or = 0
-        ans = 0
-        weight = 0
         for i in nums:
             nums_or |= i
-        while nums_or != 0:
-            ans += nums_or % 2 * 2 ** (len(nums) - 1) * 2**weight
-            nums_or //= 2
-            weight += 1
-
-        return ans
+        return nums_or << len(nums) - 1
 
 
 if __name__ == "__main__":
