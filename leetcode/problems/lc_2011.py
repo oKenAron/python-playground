@@ -3,14 +3,7 @@ from typing import List
 
 class Solution:
     def finalValueAfterOperations(self, operations: List[str]) -> int:
-        ans = 0
-        for o in operations:
-            if o[1] == "+":
-                ans += 1
-            else:
-                ans -= 1
-
-        return ans
+        return sum(1 if o[1] == "+" else -1 for o in operations)
 
 
 if __name__ == "__main__":
