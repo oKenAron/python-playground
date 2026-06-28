@@ -1,18 +1,16 @@
-import copy
+import heapq
 
 
 class Solution:
     def maxSum(self, nums: list[int], k: int, mul: int) -> int:
-        t = copy.deepcopy(nums)
-
+        max_nums = heapq.nlargest(k, nums)
         ans = 0
-        for _ in range(k):
-            number = max(t)
-            index = t.index(number)
-            t[index] = 0
-            ans += number * mul
+
+        for num in max_nums:
+            ans += num * mul
             if mul > 1:
                 mul -= 1
+
         return ans
 
 
