@@ -1,16 +1,17 @@
+import copy
+
+
 class Solution:
     def maxSum(self, nums: list[int], k: int, mul: int) -> int:
-        selected = [0 for _ in range(k)]
-        for num in nums:
-            for i in range(k):
-                if num > selected[i]:
-                    selected.pop()
-                    selected.insert(i, num)
-                    break
+        t = copy.deepcopy(nums)
+
         ans = 0
-        for i in selected:
-            ans += i * mul
-            if mul >= 2:
+        for _ in range(k):
+            number = max(t)
+            index = t.index(number)
+            t[index] = 0
+            ans += number * mul
+            if mul > 1:
                 mul -= 1
         return ans
 
