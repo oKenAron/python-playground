@@ -1,15 +1,17 @@
 class Solution:
     def maxSum(self, nums: list[int], k: int, mul: int) -> int:
+        selected = [0 for _ in range(k)]
+        for num in nums:
+            for i in range(k):
+                if num > selected[i]:
+                    selected.pop()
+                    selected.insert(i, num)
+                    break
         ans = 0
-        while k:
-            current_max = max(nums)
-            if mul >= 1:
-                ans += mul * current_max
+        for i in selected:
+            ans += i * mul
+            if mul >= 2:
                 mul -= 1
-            else:
-                ans += current_max
-            nums.pop(nums.index(current_max))
-            k -= 1
         return ans
 
 
