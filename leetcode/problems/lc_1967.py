@@ -3,11 +3,7 @@ from typing import List
 
 class Solution:
     def numOfStrings(self, patterns: List[str], word: str) -> int:
-        ans = 0
-        for pattern in patterns:
-            if word.find(pattern) != -1:
-                ans += 1
-        return ans
+        return sum(pattern in word for pattern in patterns)
 
 
 if __name__ == "__main__":
